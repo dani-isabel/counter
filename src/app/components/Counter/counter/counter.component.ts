@@ -13,10 +13,9 @@ export class CounterComponent implements OnInit {
   constructor() {}
 
   ngOnChanges(changes:SimpleChanges) {
-    console.log(changes);
-    console.log(this.counterParent);
-    this.currentValues.push(this.counterParent);
-    this.previousValues.push(this.counterParent);
+    let change = changes['counterParent'];
+    this.currentValues.push(change.currentValue);
+    this.previousValues.push(change.previousValue);
   }
   ngOnInit(): void {
   }
